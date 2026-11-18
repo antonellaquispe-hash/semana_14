@@ -1,0 +1,7 @@
+server:
+  port: 9094
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:mysql://servidor:3306/bd_cliente_prod}
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:}

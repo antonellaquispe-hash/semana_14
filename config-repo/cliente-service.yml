@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: cliente-service
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+mensaje:
+  texto: Configuración obtenida desde Config Server para Cliente Service
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka

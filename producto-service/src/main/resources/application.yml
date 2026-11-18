@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: producto-service
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+  config:
+    import: configserver:http://localhost:8888
+resilience4j:
+  circuitbreaker:
+    instances:
+      categoriaService:
+        registerHealthIndicator: true
+        slidingWindowSize: 5
+        minimumNumberOfCalls: 3
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s

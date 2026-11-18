@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: pedido-service
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+  config:
+    import: configserver:http://localhost:8888
+resilience4j:
+  retry:
+    instances:
+      clienteRetry:
+        maxAttempts: 3
+        waitDuration: 2s
+  bulkhead:
+    instances:
+      productoBulkhead:
+        maxConcurrentCalls: 2
+        maxWaitDuration: 1s
